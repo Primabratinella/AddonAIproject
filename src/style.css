@@ -8,7 +8,10 @@ header {
     margin-bottom: 30px;
     
 }
-
+.backgroundImage {
+    background-size: cover;
+    filter: blur(10px);
+}
 img {
 
     display: block;
@@ -93,7 +96,7 @@ form {
 
 footer {
     text-align: center;
-    font-size: 14px;
+    font-size: 11px;
     margin-top: 30px;
     
 }
