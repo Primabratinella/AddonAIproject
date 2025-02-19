@@ -1,24 +1,25 @@
-function displayPoem (response) {
-    response.preventDefault ();
-    
-    new Typewriter ("#poem", {
+function displayRecipe (response) {
+    new Typewriter ("#recipe", {
         strings: response.data.answer,
         autoStart: true,
         delay: 1,
         cursor: "",
     });
 }
-function generatePoem (event) {
+function generateRecipe (event) {
     event.preventDefault ();
     
     let instructionsInput = document.querySelector ("#user-instructions");
     let apiKey = "a08f0oc3b4t11e51a8dbab6fef7e5923";
-    let prompt = `User instructions: Generate a short, sweet poem in French about ${instructionsInput.value} `;
-    let context = "You are a romantic poem expert who loves short poems. Your are going to generate a 4 line poem in basic HTML and separate each line with a <br />. Make sure to follow user instructions. Do not include a title.";
-    let apiURL = `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${context}&key=${apikey}`;
+    let prompt = `User instructions: Generate a one-page Filipino dish recipe about ${instructionsInput.value} `;
+    let context = "You are a food enthusiast who likes learning new dishes and loves Filipino food. You are going to generate Filipino food recipes including instructions on how to cook in basic HTML and separate each line with a <br />. Make sure to follow user instructions.  Make sure to show the recipe in one page only. Avoid using quotes at the start and end of the recipe.";
+    let apiURL = `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${context}&key=${apiKey}`;
 
-    axios.get(apiURL).then(displayPoem);
+    let recipeElement = document.querySelector("#recipe");
+    recipeElement.classList.remove("hidden");
+    recipeElement.innerHTML = `<div class ="generating"> Generating recipe about ${instructionsInput.value}</div>`;
+
+    axios.get(apiURL).then(displayRecipe);
 }
-
-let poemFormElement = document.querySelector ("#poem-generator-form");
-poemFormElement.addEventListener("submit", generatePoem);
+let recipeFormElement = document.querySelector ("#recipe-generator-form");
+recipeFormElement.addEventListener("submit", generateRecipe);

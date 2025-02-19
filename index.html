@@ -11,15 +11,15 @@
 <body>
 
 <div class="container">
-
     <header>
-    <h1>AI French Poem Generator</h1>
+    <h1>Filipino Recipe Generator</h1>
     </header> 
 
     <main>
-        <form id="poem-generator-form">
+        <div class="form-container">
+        <form id="recipe-generator-form">
             <input type="text" 
-            placeholder="Type your French poem topic " 
+            placeholder="Type the Filipino dish you want to cook " 
             autofocus
             required
             autocomplete="off"
@@ -28,8 +28,9 @@
             />
             <input type= "Submit" class="submit-button"/>
         </form>
-        
-        <div class="poem" id="poem">
+        <div class="hint">i.e: Sinigang, Adobo or Lechon...</div>
+        </div> 
+        <div class="recipe hidden" id="recipe">
         </div>
     </main>
 
