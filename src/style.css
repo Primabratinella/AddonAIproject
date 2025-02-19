@@ -9,6 +9,14 @@ header {
     
 }
 
+img {
+
+    display: block;
+    margin: auto;
+    width: 50%;
+    border-radius: 10px;
+    border: 2px solid #8b008b;
+}
 a {
     color: crimson;
 }
